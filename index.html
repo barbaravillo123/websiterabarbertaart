@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eindpresentatie – Barbara</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --odisee-green: #3D7A3D;
+    --odisee-green-light: #5A9E5A;
+    --odisee-green-pale: #EAF4EA;
+    --odisee-green-dark: #2A572A;
+    --accent: #C8E6C8;
+    --text-dark: #1A1A1A;
+    --text-mid: #4A4A4A;
+    --text-muted: #7A7A7A;
+    --white: #FFFFFF;
+    --off-white: #F8FAF8;
+    --border: #D4E8D4;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--white);
+    color: var(--text-dark);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(255,255,255,0.96);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 3rem;
+    height: 60px;
+  }
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--odisee-green-dark);
+    letter-spacing: 0.02em;
+  }
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+  .nav-links a {
+    font-size: 0.82rem;
+    font-weight: 500;
+    text-decoration: none;
+    color: var(--text-mid);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--odisee-green); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding-top: 60px;
+  }
+  .hero-left {
+    padding: 5rem 4rem 5rem 6rem;
+    background: var(--white);
+  }
+  .hero-tag {
+    display: inline-block;
+    background: var(--odisee-green-pale);
+    color: var(--odisee-green-dark);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 100px;
+    margin-bottom: 1.5rem;
+  }
+  .hero-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 5rem;
+    font-weight: 900;
+    line-height: 1;
+    color: var(--text-dark);
+    margin-bottom: 0.4rem;
+  }
+  .hero-name span { color: var(--odisee-green); }
+  .hero-subtitle {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    font-weight: 300;
+    margin-bottom: 2.5rem;
+    line-height: 1.6;
+  }
+  .hero-opleiding {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--odisee-green-dark);
+    background: var(--odisee-green-pale);
+    border-left: 3px solid var(--odisee-green);
+    padding: 10px 16px;
+    border-radius: 0 6px 6px 0;
+    margin-bottom: 2rem;
+  }
+  .hero-right {
+    height: 100vh;
+    background: var(--odisee-green-dark);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-right::before {
+    content: '';
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 350px; height: 350px;
+    background: rgba(255,255,255,0.04);
+    border-radius: 50%;
+  }
+  .hero-right::after {
+    content: '';
+    position: absolute;
+    bottom: -60px; left: -60px;
+    width: 250px; height: 250px;
+    background: rgba(255,255,255,0.04);
+    border-radius: 50%;
+  }
+  .hero-quote {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 400;
+    color: var(--white);
+    text-align: center;
+    line-height: 1.5;
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 1;
+  }
+  .hero-quote em {
+    color: var(--accent);
+    font-style: normal;
+  }
+  .hero-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+  }
+  .stat-box {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 12px;
+    padding: 1.2rem;
+    text-align: center;
+  }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--accent);
+    display: block;
+  }
+  .stat-label {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.6);
+    margin-top: 4px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  /* SECTIONS */
+  section { padding: 6rem 6rem; }
+  .section-tag {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--odisee-green);
+    margin-bottom: 0.75rem;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    line-height: 1.1;
+    margin-bottom: 1rem;
+  }
+  .section-intro {
+    font-size: 1rem;
+    color: var(--text-muted);
+    max-width: 520px;
+    line-height: 1.7;
+    font-weight: 300;
+    margin-bottom: 3rem;
+  }
+
+  /* TIJDLIJN */
+  #traject { background: var(--off-white); }
+  .timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    position: relative;
+    max-width: 680px;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 28px;
+    top: 28px;
+    bottom: 28px;
+    width: 1px;
+    background: var(--border);
+  }
+  .tl-item {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+    padding: 1.5rem 0;
+  }
+  .tl-dot {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--white);
+    border: 2px solid var(--odisee-green);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 1.2rem;
+    position: relative;
+    z-index: 1;
+  }
+  .tl-content h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 0.25rem;
+  }
+  .tl-content p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    font-weight: 300;
+  }
+
+  /* STAGE */
+  #stage { background: var(--white); }
+  .stage-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 2.5rem;
+  }
+  .stage-card {
+    background: var(--off-white);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 2rem;
+  }
+  .stage-card.featured {
+    background: var(--odisee-green-dark);
+    border-color: var(--odisee-green-dark);
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: center;
+  }
+  .stage-card-icon {
+    font-size: 1.8rem;
+    margin-bottom: 0.75rem;
+  }
+  .stage-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 0.5rem;
+  }
+  .stage-card p {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    font-weight: 300;
+  }
+  .stage-card.featured h3 { color: var(--white); }
+  .stage-card.featured p { color: rgba(255,255,255,0.65); }
+  .stage-badge {
+    display: inline-block;
+    background: var(--accent);
+    color: var(--odisee-green-dark);
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 100px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+  .tasks-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .tasks-list li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.88rem;
+    color: rgba(255,255,255,0.8);
+    font-weight: 300;
+  }
+  .tasks-list li::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  /* KERNKWADRANT */
+  #zelfanalyse { background: var(--odisee-green-dark); }
+  #zelfanalyse .section-tag { color: var(--accent); }
+  #zelfanalyse .section-title { color: var(--white); }
+  #zelfanalyse .section-intro { color: rgba(255,255,255,0.55); }
+  .kwadrant-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    max-width: 680px;
+  }
+  .kwadrant-card {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 16px;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .kwadrant-card::before {
+    content: attr(data-num);
+    position: absolute;
+    top: -0.5rem;
+    right: 1rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 5rem;
+    font-weight: 900;
+    color: rgba(255,255,255,0.04);
+    line-height: 1;
+  }
+  .kwadrant-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+  }
+  .kwadrant-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 0.5rem;
+  }
+  .kwadrant-desc {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.6;
+    font-weight: 300;
+  }
+
+  /* STERKTES */
+  #skills { background: var(--white); }
+  .skills-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+  .skill-group-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .skill-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-bottom: 2rem;
+  }
+  .chip {
+    background: var(--odisee-green-pale);
+    color: var(--odisee-green-dark);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    padding: 8px 18px;
+    font-size: 0.85rem;
+    font-weight: 500;
+  }
+  .chip.werkpunt {
+    background: #FEF3F0;
+    color: #8B3A20;
+    border-color: #F5C4B3;
+  }
+  .werkpunt-item {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    margin-bottom: 1.2rem;
+  }
+  .werkpunt-icon {
+    width: 32px; height: 32px;
+    background: #FEF3F0;
+    border: 1px solid #F5C4B3;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .werkpunt-text h4 {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 0.25rem;
+  }
+  .werkpunt-text p {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+    font-weight: 300;
+  }
+
+  /* TOEKOMST */
+  #toekomst { background: var(--off-white); }
+  .toekomst-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+  .toekomst-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 2rem;
+    text-align: center;
+  }
+  .toekomst-icon {
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+    display: block;
+  }
+  .toekomst-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 0.5rem;
+  }
+  .toekomst-card p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    font-weight: 300;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--text-dark);
+    color: rgba(255,255,255,0.4);
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.78rem;
+    font-weight: 300;
+    letter-spacing: 0.04em;
+  }
+  footer span { color: var(--accent); }
+
+  /* 12 VRAGEN */
+  #vragen { background: var(--off-white); display: flex; flex-direction: column; align-items: center; }
+  .vragen-accordion { max-width: 860px; width: 100%; margin: 0 auto; display: flex; flex-direction: column; gap: 1rem; text-align: left; }
+  .vraag-item { border: 1px solid var(--border); border-radius: 14px; overflow: hidden; }
+  .vraag-header { display: flex; align-items: center; gap: 1rem; padding: 1.2rem 1.5rem; background: var(--odisee-green-pale); border-bottom: 1px solid var(--border); }
+  .vraag-num { width: 36px; height: 36px; background: var(--odisee-green-dark); color: var(--white); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.82rem; font-weight: 700; flex-shrink: 0; }
+  .vraag-header h3 { font-size: 0.97rem; font-weight: 600; color: var(--odisee-green-dark); flex: 1; }
+  .vraag-body { padding: 1.25rem 1.5rem 1.25rem 4.5rem; font-size: 0.9rem; color: var(--text-mid); line-height: 1.75; font-weight: 300; background: var(--white); }
+
+  /* SMOOTH SCROLL */
+  html { scroll-behavior: smooth; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">Barbara Villo ✦ Portfolio ✦ Odisee 2025 – 2026</div>
+  <ul class="nav-links">
+    <li><a href="#traject">Traject</a></li>
+    <li><a href="#stage">Stage</a></li>
+    <li><a href="#zelfanalyse">Zelfanalyse</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#toekomst">Toekomst</a></li>
+    <li><a href="#vragen">12 Vragen</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-left">
+    <div class="hero-tag">Eindpresentatie · Marketing &amp; Communicatie</div>
+    <h1 class="hero-name">Bar<span>bara</span></h1>
+    <p class="hero-subtitle">Van studente tot professional.<br>Een reis in groei, verantwoordelijkheid en creativiteit.</p>
+    <div class="hero-opleiding">Graduaat Marketing &amp; Communicatie — Odisee Hogeschool</div>
+  </div>
+  <div class="hero-right">
+    <p class="hero-quote">"Plannen is de sleutel — <em>stap voor stap</em> naar het doel."</p>
+    <div class="hero-stats">
+      <div class="stat-box">
+        <span class="stat-num">2</span>
+        <span class="stat-label">Jaren opleiding</span>
+      </div>
+      <div class="stat-box">
+        <span class="stat-num">1</span>
+        <span class="stat-label">Stageplek</span>
+      </div>
+      <div class="stat-box">
+        <span class="stat-num">12</span>
+        <span class="stat-label">Vragen beantwoord</span>
+      </div>
+      <div class="stat-box">
+        <span class="stat-num">∞</span>
+        <span class="stat-label">Groei</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TRAJECT -->
+<section id="traject">
+  <div class="section-tag">Achteruit kijken</div>
+  <h2 class="section-title">Hoe ben ik hier geraakt?</h2>
+  <p class="section-intro">Stap voor stap, met een agenda en een kladblad als trouwe metgezellen.</p>
+
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-dot">01</div>
+      <div class="tl-content">
+        <h3>Planning als fundament</h3>
+        <p>Afspraken in de agenda, to-do's op het kladblad. De belangrijkste taken eerst — altijd.</p>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot">02</div>
+      <div class="tl-content">
+        <h3>Opleiding Marketing &amp; Communicatie</h3>
+        <p>Veel bijgeleerd over groepswerken, marketingstrategieën en visuele content. Gemotiveerd gebleven, ook op mindere dagen.</p>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot">03</div>
+      <div class="tl-content">
+        <h3>Werkplekleren bij Armonea Spanjeberg</h3>
+        <p>Stage in een woonzorgcentrum in Zellik. Zelfstandig werken, creatief denken en omgaan met echte uitdagingen.</p>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot">04</div>
+      <div class="tl-content">
+        <h3>Vandaag: klaar voor de volgende stap</h3>
+        <p>Kennis, vaardigheden en zelfvertrouwen opgebouwd. Structureel werken, zelfstandig taken uitvoeren, mezelf blijven ontwikkelen.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STAGE -->
+<section id="stage">
+  <div class="section-tag">Werkplekleren</div>
+  <h2 class="section-title">Stage bij Armonea Spanjeberg</h2>
+  <p class="section-intro">Woonzorgcentrum in Zellik — een plek waar ik groeide van student tot teamlid.</p>
+
+  <div class="stage-grid">
+    <div class="stage-card featured">
+      <div>
+        <div class="stage-badge">Armonea Spanjeberg · Zellik</div>
+        <h3>Meer dan taken uitvoeren</h3>
+        <p>Ik heb niet alleen taken uitgevoerd — ik heb geleerd wat het betekent om deel uit te maken van een team. Van zelfstandig planningen opstellen tot creatieve marketing voor een woonzorgcentrum.</p>
+      </div>
+      <div>
+        <p style="color:rgba(255,255,255,0.45); font-size:0.75rem; font-weight:600; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:0.75rem;">Takenpakket</p>
+        <ul class="tasks-list">
+          <li>Telefoon opnemen &amp; administratie</li>
+          <li>Kamers controleren &amp; klaarleggen</li>
+          <li>Planning opstellen voor studenten</li>
+          <li>Stock tellen</li>
+          <li>Affiches, posters &amp; flyers maken</li>
+          <li>Rondleidingen geven aan nieuwe bewoners</li>
+        </ul>
+      </div>
+    </div>
+    <div class="stage-card">
+      <h3>Creativiteit in de praktijk</h3>
+      <p>Van affiches ontwerpen tot evenementen organiseren — marketing in een non-profitcontext heeft zijn eigen uitdagingen en voldoening.</p>
+    </div>
+    <div class="stage-card">
+      <h3>Samenwerken &amp; communiceren</h3>
+      <p>Interne communicatie opvolgen, collega's informeren en de juiste toon vinden voor zowel bewoners als bezoekers.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ZELFANALYSE -->
+<section id="zelfanalyse">
+  <div class="section-tag">Kernkwadrant van Ofman</div>
+  <h2 class="section-title">Zelfanalyse</h2>
+  <p class="section-intro">Wie ik ben, waar ik op let, en wat me uitdaagt.</p>
+
+  <div class="kwadrant-grid">
+    <div class="kwadrant-card" data-num="1">
+      <div class="kwadrant-label">Kernkwaliteit</div>
+      <div class="kwadrant-title">Georganiseerd &amp; verantwoordelijk</div>
+      <div class="kwadrant-desc">Ik plan goed, werk gestructureerd en neem mijn taken ernstig. Deadlines zijn voor mij geen dreiging — ze zijn een richtsnoer.</div>
+    </div>
+    <div class="kwadrant-card" data-num="2">
+      <div class="kwadrant-label">Valkuil</div>
+      <div class="kwadrant-title">Te perfectionistisch</div>
+      <div class="kwadrant-desc">Soms wil ik het té goed doen. Ik focus op details en verlies het grotere geheel uit het oog. Stress is het gevolg.</div>
+    </div>
+    <div class="kwadrant-card" data-num="3">
+      <div class="kwadrant-label">Uitdaging</div>
+      <div class="kwadrant-title">Meer loslaten</div>
+      <div class="kwadrant-desc">Vertrouwen hebben dat "goed genoeg" soms goed genoeg is. Leren grenzen stellen en vaker nee zeggen.</div>
+    </div>
+    <div class="kwadrant-card" data-num="4">
+      <div class="kwadrant-label">Allergie</div>
+      <div class="kwadrant-title">Slordige werkmethodes</div>
+      <div class="kwadrant-desc">Mensen die niet plannen of ongeorganiseerd werken, werken op mijn zenuwen. Ik begrijp het niet — en dat is iets om bewust mee om te gaan.</div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-tag">Sterktes &amp; werkpunten</div>
+  <h2 class="section-title">Wie ben ik nu?</h2>
+  <p class="section-intro">Gemotiveerd, doelgericht en altijd op zoek naar groei — individueel én in team.</p>
+
+  <div class="skills-layout">
+    <div>
+      <div class="skill-group-title">Mijn sterktes</div>
+      <div class="skill-chips">
+        <span class="chip">Sociaal &amp; behulpzaam</span>
+        <span class="chip">Analytisch</span>
+        <span class="chip">Creatief &amp; visueel</span>
+        <span class="chip">Detailgericht</span>
+        <span class="chip">Goed plannen</span>
+        <span class="chip">Teamspeler</span>
+        <span class="chip">Zelfstandig</span>
+      </div>
+      <div class="skill-group-title">Extra talent ontdekt</div>
+      <div class="skill-chips">
+        <span class="chip">Affiches &amp; posters</span>
+        <span class="chip">Video bewerken</span>
+        <span class="chip">Creatieve visualisatie</span>
+      </div>
+    </div>
+    <div>
+      <div class="skill-group-title">Werkpunten &amp; aanpak</div>
+      <div class="werkpunt-item">
+        <div class="werkpunt-text">
+          <h4>Te veel focus op details</h4>
+          <p>Ik leer meer het overzicht te bewaren en niet te blijven hangen in details.</p>
+        </div>
+      </div>
+      <div class="werkpunt-item">
+        <div class="werkpunt-text">
+          <h4>Perfectionisme</h4>
+          <p>Ik aanvaard dat "goed" soms voldoende is en oefen dat actief in.</p>
+        </div>
+      </div>
+      <div class="werkpunt-item">
+        <div class="werkpunt-text">
+          <h4>Grenzen stellen</h4>
+          <p>Ik wil bewuster nee durven zeggen — voor mezelf en voor mijn resultaten.</p>
+        </div>
+      </div>
+      <div class="werkpunt-item">
+        <div class="werkpunt-text">
+          <h4>Omgaan met stress</h4>
+          <p>Beter plannen + rustmomenten inbouwen. Taak per taak werken als het hectisch wordt.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TOEKOMST -->
+<section id="toekomst">
+  <div class="section-tag">Vooruit kijken</div>
+  <h2 class="section-title">Mijn toekomst</h2>
+  <p class="section-intro">Openstaan voor nieuwe kansen, blijven leren en groeien.</p>
+
+  <div class="toekomst-grid">
+    <div class="toekomst-card">
+      <h3>Extra opleiding</h3>
+      <p>Tandartsassistentie — een nieuwe richting om vaardigheden te verbreden en ervaring op te doen.</p>
+    </div>
+    <div class="toekomst-card">
+      <h3>Internationaal &amp; ambitieus</h3>
+      <p>Droomjob in een internationaal bedrijf — liefst in het buitenland. Dubai is het richtpunt.</p>
+    </div>
+    <div class="toekomst-card">
+      <h3>Marketing &amp; groei</h3>
+      <p>Terechtkomen in een bedrijf met een goede sfeer, ruimte voor bijleren en een focus op marketing en communicatie.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 12 VRAGEN -->
+<section id="vragen" style="background: var(--off-white); text-align: center;">
+  <div class="section-tag">Eindpresentatie</div>
+  <h2 class="section-title">De 12 vragen</h2>
+  <p class="section-intro" style="margin-left: auto; margin-right: auto;">Een overzicht van alle vragen en antwoorden.</p>
+
+  <div class="vragen-accordion" style="margin: 0 auto;">
+
+    <div class="vraag-item">
+      <div class="vraag-header" style="cursor:default;">
+        <div class="vraag-num">1</div>
+        <h3>Wat heb ik geleerd in mijn opleiding?</h3>
+      </div>
+      <div class="vraag-body">In mijn opleiding Marketing en Communicatie heb ik geleerd hoe marketing in de praktijk werkt en welke factoren belangrijk zijn om een doelgroep te bereiken. Ik heb inzicht gekregen in het opstellen van marketingstrategieën, het creëren van visuele content en het belang van duidelijke communicatie.</div>
+    </div>
+
+    <div class="vraag-item">
+      <div class="vraag-header" style="cursor:default;">
+        <div class="vraag-num">2</div>
+        <h3>Op welke verwezenlijkingen ben ik het meest trots?</h3>
+      </div>
+      <div class="vraag-body">Op al mijn werk dat ik zelfstandig heb voorgebracht: de examens, alle portfolio's die ik gemaakt heb, ideeën en samenwerkingen inbrengen binnen groepswerken.</div>
+    </div>
+
+    <div class="vraag-item">
+      <div class="vraag-header" style="cursor:default;">
+        <div class="vraag-num">3</div>
+        <h3>Waar heb ik werkplekleren gedaan? Hoe was die ervaring?</h3>
+      </div>
+      <div class="vraag-body">In een woonzorgcentrum genaamd Armonea Spanjeberg in Zellik. De ervaring was heel goed — ik heb veel geleerd, zoals planningen opstellen en op een creatieve manier te werk gaan (affiches, posters, flyers maken). Mijn takenpakket: telefoon opnemen, kamers controleren en klaarleggen voor nieuwe bewoners, planning opstellen voor studenten, stock tellen.</div>
+    </div>
+
+    <div class="vraag-item">
+      <div class="vraag-header" style="cursor:default;">
+        <div class="vraag-num">4</div>
+        <h3>Wat zijn mijn sterke punten? Heb ik extra talenten ontdekt?</h3>
+      </div>
+      <div class="vraag-body">Mijn sterke punten zijn dat ik goed kan plannen, georganiseerd werk en gemotiveerd ben. Ik werk zelfstandig maar ook goed in groep. Tijdens mijn opleiding heb ik ontdekt dat ik creatief ben op vlak van visualiteit — vooral bij het maken van affiches, posters, flyers en het bewerken van video's.</div>
+    </div>
+
+    <div class="vraag-item">
+      <div class="vraag-header" style="cursor:default;">
+        <div class="vraag-num">5</div>
+        <h3>Wat zijn mijn werkpunten? Hoe ga ik daarmee om?</h3>
+      </div>
+      <div class="vraag-body">Soms focus ik te veel op details, waardoor ik het overzicht verlies. Mijn perfectionisme zorgt er soms voor dat ik enkel daarop gefocust ben. Grenzen stellen doe ik niet altijd, en ik wil beter omgaan met stress. Mijn aanpak: meer overzicht bewaren, aanvaarden dat "goed" soms genoeg is, bewust nee durven zeggen, en stress aanpakken door beter te plannen en rustmomenten in te bouwen.</div>
+    </div>
+
+    <div class="vraag-item">
+      <div class="vraag-header" style="cursor:default;">
+        <div class="vraag-num">6</div>
+        <h3>Kernkwadrant van Ofman — uitgebreide zelfanalyse</h3>
+      </div>
+      <div class="vraag-body"><strong>Kernkwaliteit:</strong> Georganiseerd en verantwoordelijk.<br><strong>Valkuil:</strong> Te perfectionistisch zijn en stress nemen.<br><strong>Uitdaging:</strong> Meer loslaten en vertrouwen hebben.<br><strong>Allergie:</strong> Mensen die slordig werken of niet plannen.</div>
+    </div>
+
+    <div class="vraag-item">
+      <div class="vraag-header" style="cursor:default;">
+        <div class="vraag-num">7</div>
+        <h3>Wat wil ik op korte termijn? Werken of verder studeren?</h3>
+      </div>
+      <div class="vraag-body">Openstaan voor een nieuwe ervaring die ik graag wil leren — een opleiding volgen van tandartsassistentie.</div>
+    </div>
+
+    <div class="vraag-item">
+      <div class="vraag-header" style="cursor:default;">
+        <div class="vraag-num">8</div>
+        <h3>Welke stappen ga ik ondernemen om een job te zoeken?</h3>
+      </div>
+      <div class="vraag-body">Vacatures zoeken online, mijn cv en motivatiebrief opstellen en solliciteren bij bedrijven die mij aanspreken. Ook wil ik mijn netwerk gebruiken en openstaan voor kansen. Momenteel heb ik enkel een job als jobstudent. Een vaste job wil ik liefst dicht bij huis — Asse of Brussel.</div>
+    </div>
+
+    <div class="vraag-item">
+      <div class="vraag-header" style="cursor:default;">
+        <div class="vraag-num">9</div>
+        <h3>Mijn ideale functie — wat houdt dat in?</h3>
+      </div>
+      <div class="vraag-body">Werken in een internationaal bedrijf, liefst in het buitenland (Dubai) in de sector business. Ter afwachting van deze droomjob wil ik andere ervaring en vaardigheden ontwikkelen door open te staan voor verschillende zaken en zo uit te groeien.</div>
+    </div>
+
+    <div class="vraag-item">
+      <div class="vraag-header" style="cursor:default;">
+        <div class="vraag-num">10</div>
+        <h3>Waar wil ik terechtkomen? In welk type bedrijf?</h3>
+      </div>
+      <div class="vraag-body">In een bedrijf waar een goede sfeer is, waar ik kan bijleren en waar ruimte is voor groei. Liefst een bedrijf dat bezig is met marketing en communicatie.</div>
+    </div>
+
+    <div class="vraag-item">
+      <div class="vraag-header" style="cursor:default;">
+        <div class="vraag-num">11</div>
+        <h3>Wat wil ik verder studeren? Wat zijn mijn andere plannen?</h3>
+      </div>
+      <div class="vraag-body">Een nieuwe opleiding volgen: tandartsassistentie. Andere plannen zijn naar het buitenland gaan en in het bedrijf werken van mijn familie om zoveel mogelijk te leren hoe een bedrijf in elkaar zit.</div>
+    </div>
+
+    <div class="vraag-item">
+      <div class="vraag-header" style="cursor:default;">
+        <div class="vraag-num">12</div>
+        <h3>Waar heb ik spijt van? Had ik iets anders willen aanpakken?</h3>
+      </div>
+      <div class="vraag-body">Ik heb geen echte spijt van mijn keuzes tot nu toe. Ik zie uitdagingen als leermomenten en merk dat ik daardoor ben gegroeid. Moeilijke situaties pak ik nu beter aan dan vroeger.</div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <p>Barbara · Eindpresentatie Graduaat Marketing &amp; Communicatie · <span>Odisee Hogeschool 2025 – 2026</span></p>
+</footer>
+
+</body>
+</html>
